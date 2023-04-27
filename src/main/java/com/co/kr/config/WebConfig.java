@@ -11,7 +11,7 @@ import org.thymeleaf.spring5.view.ThymeleafViewResolver;
 import org.thymeleaf.templateresolver.ClassLoaderTemplateResolver;
 
 import nz.net.ultraq.thymeleaf.layoutdialect.LayoutDialect;
-
+import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 @Configuration	
 public class WebConfig implements WebMvcConfigurer {
 
@@ -46,6 +46,10 @@ public class WebConfig implements WebMvcConfigurer {
 		return viewResolver;
 	}
 	
+	@Override
+	public void addResourceHandlers(ResourceHandlerRegistry registry) {
+		registry.addResourceHandler("/resources/upload/**").addResourceLocations("file:///C:/upload/");
+	}
 	public void addViewControllers(ViewControllerRegistry registry) {
 		registry.addViewController("/").setViewName("index.html");
 	}
