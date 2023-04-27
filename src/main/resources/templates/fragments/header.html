@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <header th:fragment="headerFragment">
+       <div class="lnb">
+           <div class="logo">
+                <a th:href="@{bdList}"> <span>SpringBoot</span> <span>STUDY</span></a>
+           </div>
+           
+           <ul class="nav">
+              <th:block th:if="${session.mbLevel}==3"> 
+                   <li class="on"><a class="menu1" th:href="@{mbList(page=1)}">맴버정보</a></li>
+               </th:block>
+               <th:block>
+                   <li class="on"><a class="menu2" th:href="@{bdList}">보드정보</a></li>
+               </th:block>
+               <th:block>
+                   <li class="on"><a class="menu3" th:href="@{bdList}">거래장터</a></li>
+               </th:block>
+           </ul>
+       </div>
+    </header>
+</html>
